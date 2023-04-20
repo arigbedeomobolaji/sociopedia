@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAppSelector, useAppDispatch } from "@src/libs/hooks";
+import { useMediaQuery } from "@react-hook/media-query";
 import {
   selectChangeTheme,
   toggleTheme,
@@ -31,7 +32,6 @@ import {
   Btn,
   MobileWrapper,
   MobileWrapperLeft,
-  MobileWrapperMiddle,
   MobileWrapperRight,
   MobileDropDownMenu,
 } from "./style";
@@ -42,6 +42,7 @@ export default function NavBar(): JSX.Element {
   const [searchInput, setSearchInput] = useState("");
   const [moreDetails, setMoreDetails] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const isSmallScreen = useMediaQuery("(max-width: 570px)");
 
   function SearchFn(input: string): void {
     console.log("I was clicked!", input);
@@ -76,15 +77,29 @@ export default function NavBar(): JSX.Element {
         </DesktopWrapperLeft>
         <DesktopWrapperRight>
           <div
-            className="w-8 h-8 md:w-6 md:h-6 cursor-pointer transition-all hover:scale-105"
+            className={`w-8 h-8  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105 ${
+              isDark ? "text-gray-50" : "text-gray-800"
+            }`}
             onClick={() => dispatch(changeTheme)}
           >
             {isDark ? <MoonIcon /> : <SunIcon />}
           </div>
 
-          <ChatBubbleBottomCenterTextIcon className="w-8 h-8  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105" />
-          <BellIcon className="w-8 h-8  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105" />
-          <QuestionMarkCircleIcon className="w-8 h-  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105" />
+          <ChatBubbleBottomCenterTextIcon
+            className={`w-8 h-8  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105 ${
+              isDark ? "text-gray-50" : "text-gray-800"
+            }`}
+          />
+          <BellIcon
+            className={`w-8 h-8  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105 ${
+              isDark ? "text-gray-50" : "text-gray-800"
+            }`}
+          />
+          <QuestionMarkCircleIcon
+            className={`w-8 h-8  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105 ${
+              isDark ? "text-gray-50" : "text-gray-800"
+            }`}
+          />
           {false ? (
             <UserLoggedInMenu onClick={() => setMoreDetails(!moreDetails)}>
               <UserProfile $dark={isDark}>
@@ -104,8 +119,18 @@ export default function NavBar(): JSX.Element {
             </UserLoggedInMenu>
           ) : (
             <UserLoggedOutMenu>
-              <Btn type="button">Login</Btn>
-              <Btn type="button">SignUp</Btn>
+              <Btn
+                type="button"
+                className={`${isDark ? "text-gray-50" : "text-gray-800"}`}
+              >
+                Login
+              </Btn>
+              <Btn
+                type="button"
+                className={`${isDark ? "text-gray-50" : "text-gray-800"}`}
+              >
+                SignUp
+              </Btn>
             </UserLoggedOutMenu>
           )}
         </DesktopWrapperRight>
@@ -114,26 +139,55 @@ export default function NavBar(): JSX.Element {
       {/* ****************************************************************************************************** *************************************Mobile*************************************************************** ***********************************************************************************************************/}
       <MobileWrapper $dark={isDark}>
         <MobileWrapperLeft>
-          <PageLogo>Sociopedia</PageLogo>
+          <PageLogo className="xs:text-xs sm:text-sm">Sociopedia</PageLogo>
         </MobileWrapperLeft>
-        <MobileWrapperMiddle $dark={isDark}>
-          <Input
-            $dark={isDark}
-            type="text"
-            value={searchInput}
-            placeholder="Search..."
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
-          <MagnifyingGlassIcon
-            className="w-8 h-8 p-2 mr-2 text-white bg-black rounded-full cursor-pointer shadow-md"
-            onClick={() => SearchFn(searchInput)}
-          />
+        {/* <MobileWrapperMiddle $dark={isDark}>
+        
         </MobileWrapperMiddle>
+           */}
         <MobileWrapperRight>
+          {isSmallScreen ? (
+            <></>
+          ) : (
+            <div className={` flex shadow-lg h-3/4 py-3 items-center flex-1`}>
+              <Input
+                $dark={isDark}
+                type="text"
+                value={searchInput}
+                placeholder="Search..."
+                onChange={(e) => setSearchInput(e.target.value)}
+              />
+              <MagnifyingGlassIcon
+                className="w-[35px] h-[35px] p-2 mr-2 text-white bg-black rounded-full cursor-pointer shadow-md"
+                onClick={() => SearchFn(searchInput)}
+              />
+            </div>
+          )}
+          {/* <div className={`xs:hidden sm:hidden flex`}>
+            <Input
+              $dark={isDark}
+              type="text"
+              value={searchInput}
+              placeholder="Search..."
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
+            <MagnifyingGlassIcon
+              className="w-[35px] h-[35px] p-2 mr-2 text-white bg-black rounded-full cursor-pointer shadow-md"
+              onClick={() => SearchFn(searchInput)}
+            />
+          </div> */}
+          <div
+            className={`w-5 h-5  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105 ${
+              isDark ? "text-gray-500" : "text-gray-800"
+            }`}
+            onClick={() => dispatch(changeTheme)}
+          >
+            {isDark ? <MoonIcon /> : <SunIcon />}
+          </div>
           <p onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? (
               <XMarkIcon
-                className={`w-6 h-6 ${
+                className={`w-5 h-5 ${
                   isDark ? " text-gray-500" : " text-black"
                 }`}
               />
@@ -153,8 +207,16 @@ export default function NavBar(): JSX.Element {
               </MobileDropDownMenu>
             ) : (
               <MobileDropDownMenu $dark={isDark}>
-                <DropDownItem>Login</DropDownItem>
-                <DropDownItem>Register</DropDownItem>
+                <DropDownItem
+                  className={`${isDark ? "text-gray-50" : "text-gray-800"}`}
+                >
+                  Login
+                </DropDownItem>
+                <DropDownItem
+                  className={`${isDark ? "text-gray-50" : "text-gray-800"}`}
+                >
+                  Register
+                </DropDownItem>
               </MobileDropDownMenu>
             ))}
         </MobileWrapperRight>
