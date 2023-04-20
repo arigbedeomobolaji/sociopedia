@@ -34,6 +34,7 @@ import {
   MobileWrapperLeft,
   MobileWrapperRight,
   MobileDropDownMenu,
+  Container,
 } from "./style";
 
 export default function NavBar(): JSX.Element {
@@ -54,9 +55,9 @@ export default function NavBar(): JSX.Element {
   }
 
   return (
-    <div>
+    <Container $dark={isDark}>
       {/* Desktop */}
-      <DesktopWrapper $dark={isDark}>
+      <DesktopWrapper>
         <DesktopWrapperLeft>
           <PageLogo>Sociopedia</PageLogo>
           <SearchWrapper $dark={isDark}>
@@ -139,7 +140,7 @@ export default function NavBar(): JSX.Element {
       {/* ****************************************************************************************************** *************************************Mobile*************************************************************** ***********************************************************************************************************/}
       <MobileWrapper $dark={isDark}>
         <MobileWrapperLeft>
-          <PageLogo className="xs:text-xs sm:text-sm">Sociopedia</PageLogo>
+          <PageLogo className="text-lg">Sociopedia</PageLogo>
         </MobileWrapperLeft>
         {/* <MobileWrapperMiddle $dark={isDark}>
         
@@ -149,7 +150,9 @@ export default function NavBar(): JSX.Element {
           {isSmallScreen ? (
             <></>
           ) : (
-            <div className={` flex shadow-lg h-3/4 py-3 items-center flex-1`}>
+            <div
+              className={` flex shadow-lg h-3/4 py-3 items-center flex-1 bg-gray-800 rounded-full`}
+            >
               <Input
                 $dark={isDark}
                 type="text"
@@ -163,19 +166,7 @@ export default function NavBar(): JSX.Element {
               />
             </div>
           )}
-          {/* <div className={`xs:hidden sm:hidden flex`}>
-            <Input
-              $dark={isDark}
-              type="text"
-              value={searchInput}
-              placeholder="Search..."
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
-            <MagnifyingGlassIcon
-              className="w-[35px] h-[35px] p-2 mr-2 text-white bg-black rounded-full cursor-pointer shadow-md"
-              onClick={() => SearchFn(searchInput)}
-            />
-          </div> */}
+
           <div
             className={`w-5 h-5  md:w-6 md:h-6  cursor-pointer transition-all hover:scale-105 ${
               isDark ? "text-gray-500" : "text-gray-800"
@@ -221,6 +212,6 @@ export default function NavBar(): JSX.Element {
             ))}
         </MobileWrapperRight>
       </MobileWrapper>
-    </div>
+    </Container>
   );
 }
