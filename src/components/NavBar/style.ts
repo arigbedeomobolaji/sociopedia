@@ -4,12 +4,12 @@ interface Dark {
 }
 
 export const Container = tw.div<Dark>`
-${(p) => (p.$dark ? "bg-gray-800 text-gray-50":"bg-gray-50 text-gray-800")} 
+${(p) => (p.$dark ? "bg-gray-900 text-gray-200" : "bg-gray-50 text-gray-900")}
 sticky top-0 z-50 shadow-md 
 `;
-export const DesktopWrapper = tw.div`max-w-7xl mx-auto hidden md:grid grid-cols-5 h-24 flex-grow`
-export const DesktopWrapperLeft = tw.div`flex items-center justify-start px-10 lg:px-5 md:px-3 space-x-10 md:space-x-3 col-span-2`;
-export const DesktopWrapperRight = tw.div`col-span-3 flex items-center justify-end h-full text-gray-600 sm:pr-5 md:pr-5 lg:pr-10 md:space-x-5 lg:space-x-12`;
+export const DesktopWrapper = tw.div`max-w-[1400px] mx-auto hidden md:grid grid-cols-5 h-24 flex-grow sm:px-6`
+export const DesktopWrapperLeft = tw.div`flex items-center justify-start  space-x-10 md:space-x-3 col-span-2`;
+export const DesktopWrapperRight = tw.div`col-span-3 flex items-center justify-end h-full text-gray-600 md:space-x-5 lg:space-x-12`;
 export const PageLogo = tw.h1`text-2xl md:text-xl lg:text-2xl hover:scale-105 text-blue-500 font-semibold cursor-pointer`;
 export const SearchWrapper = tw.div<Dark>`
 ${(p) => (p.$dark ? "bg-gray-700 text-white":"bg-white text-black")}
