@@ -151,7 +151,9 @@ export default function NavBar(): JSX.Element {
             <></>
           ) : (
             <div
-              className={` flex shadow-lg h-3/4 py-3 items-center flex-1 bg-gray-800 rounded-full`}
+              className={` ${
+                isDark ? "bg-gray-800 text-gray-50" : "bg-gray-50 text-gray-800"
+              } flex shadow-lg h-3/4 py-3 items-center flex-1 rounded-full`}
             >
               <Input
                 $dark={isDark}

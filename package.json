@@ -20,6 +20,7 @@
     "date-fns": "^2.29.3",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "feather-icons-react": "^0.6.2",
     "next": "13.3.0",
     "next-redux-wrapper": "^8.1.0",
     "postcss": "8.4.21",
