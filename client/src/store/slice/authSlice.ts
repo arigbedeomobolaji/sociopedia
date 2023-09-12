@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
 import { SocialMedium } from "@src/components/EditProfile/AddSocialMedia";
+import apiBaseUrl from "@src/libs/apiBaseUlr";
 
 export interface Data {
 	email?: string;
@@ -48,7 +49,7 @@ export const authApi = createAsyncThunk(
 			const path = data?.path;
 			delete data.path;
 			const response = await axios.post(
-				`http://127.0.0.1:8080/api/user/${path}`,
+				`${apiBaseUrl}/api/user/${path}`,
 				data,
 				config
 			);

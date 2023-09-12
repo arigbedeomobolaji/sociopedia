@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { error } from "console";
 import { RootState } from "../store";
+import apiBaseUrl from "@src/libs/apiBaseUlr";
 
 interface Data {
 	token: string;
@@ -28,7 +29,7 @@ export const createPostApi = createAsyncThunk(
 			};
 
 			const response = await axios.post(
-				"http://127.0.0.1:8080/api/upload",
+				`${apiBaseUrl}/api/upload`,
 				{ files: filesReqBody },
 				config
 			);
@@ -40,7 +41,7 @@ export const createPostApi = createAsyncThunk(
 				for (let index = 0; index <= totalFiles; index++) {
 					if (index === totalFiles) {
 						const createResponse = await axios.post(
-							"http://127.0.0.1:8080/api/posts",
+							`${apiBaseUrl}/api/posts`,
 							{
 								caption,
 								postImages,

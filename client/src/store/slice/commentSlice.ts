@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
+import apiBaseUrl from "@src/libs/apiBaseUlr";
 
 interface Data {
 	token: string;
@@ -23,7 +24,7 @@ export const addCommentApi = createAsyncThunk(
 			};
 
 			const response = await axios.post(
-				`http://127.0.0.1:8080/api/comments/${postId.toString()}`,
+				`${apiBaseUrl}/api/comments/${postId.toString()}`,
 				data,
 				config
 			);

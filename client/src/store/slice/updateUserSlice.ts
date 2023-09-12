@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { UserInfo } from "@store/slice/authSlice";
 import axios from "axios";
 import { RootState } from "../store";
+import apiBaseUrl from "@src/libs/apiBaseUlr";
 
 export interface UpdateData extends UserInfo {
 	token?: string;
@@ -20,7 +21,7 @@ export const updateUserApi = createAsyncThunk(
 			};
 
 			const response = await axios.patch(
-				"http://127.0.0.1:8080/api/user/me",
+				`${apiBaseUrl}/api/user/me`,
 				data,
 				config
 			);

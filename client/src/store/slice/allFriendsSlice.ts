@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
+import apiBaseUrl from "@src/libs/apiBaseUlr";
 
 interface Data {
 	token?: string;
@@ -20,7 +21,7 @@ export const otherUsersApi = createAsyncThunk(
 			};
 
 			const response = await axios.get(
-				"http://127.0.0.1:8080/api/user/allusers",
+				`${apiBaseUrl}/api/user/allusers`,
 				config
 			);
 			if (response.data) {

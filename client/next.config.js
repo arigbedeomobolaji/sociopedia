@@ -12,7 +12,10 @@ const nextConfig = {
 	},
 	reactStrictMode: true,
 	images: {
-		domains: ["sociopedia-omobolaji.s3.eu-west-2.amazonaws.com"],
+		domains: [
+			"sociopedia-omobolaji.s3.eu-west-2.amazonaws.com",
+			"sociopedia-ten.vercel.app/",
+		],
 	},
 };
 

@@ -3,6 +3,7 @@ import axios from "axios";
 import { RootState } from "../store";
 import { useAppDispatch } from "@src/libs/hooks";
 import { updateUserApi } from "./updateUserSlice";
+import apiBaseUrl from "@src/libs/apiBaseUlr";
 
 export interface UploadPicsDataApi {
 	token?: string;
@@ -23,7 +24,7 @@ export const uploadpicsApi = createAsyncThunk(
 			};
 
 			const response = await axios.get(
-				"http://127.0.0.1:8080/api/upload",
+				`${apiBaseUrl}/api/upload`,
 				config
 			);
 			if (response.data) {

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import apiBaseUrl from "@src/libs/apiBaseUlr";
 import axios from "axios";
 interface Data {
 	token: string;
@@ -18,7 +19,7 @@ export const likePostAPi = createAsyncThunk(
 					Authorization: `Bearer ${token}`,
 				},
 			};
-			const url = `http://127.0.0.1:8080/api/posts/${path}/${postId}`;
+			const url = `${apiBaseUrl}/api/posts/${path}/${postId}`;
 			const response = await axios.patch(url, {}, config);
 			if (response.data) {
 				return response.data;

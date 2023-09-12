@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
 import { UserInfo } from "./authSlice";
+import apiBaseUrl from "@src/libs/apiBaseUlr";
 
 export const getPostsApi = createAsyncThunk(
 	"getPosts",
@@ -13,7 +14,7 @@ export const getPostsApi = createAsyncThunk(
 					Authorization: `Bearer ${token}`,
 				},
 			};
-			const url = "http://127.0.0.1:8080/api/posts/all";
+			const url = `${apiBaseUrl}/api/posts/all`;
 			const response = await axios.get(url, config);
 			if (response.data) {
 				return response.data;
