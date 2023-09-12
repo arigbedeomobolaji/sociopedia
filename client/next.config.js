@@ -10,7 +10,7 @@ const nextConfig = {
 	images: {
 		domains: [
 			"sociopedia-omobolaji.s3.eu-west-2.amazonaws.com",
-			"sociopedia-ten.vercel.app/",
+			"sociopedia-api.vercel.app/",
 		],
 	},
 	async headers() {
@@ -22,7 +22,7 @@ const nextConfig = {
 					{ key: "Access-Control-Allow-Credentials", value: "true" },
 					{
 						key: "Access-Control-Allow-Origin",
-						value: "https://sociopedia-ten.vercel.app",
+						value: "https://sociopedia-api.vercel.app",
 					},
 					{
 						key: "Access-Control-Allow-Methods",
