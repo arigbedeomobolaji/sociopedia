@@ -8,7 +8,7 @@
 		"build:dev": "rimraf dist && tsc",
 		"ts.check": "tsc --project tsconfig.json",
 		"add-build": "git add dist",
-		"start": "node server.js",
+		"start": "node api/server.js",
 		"client": "npm start --prefix client",
 		"client-install": "npm install --prefix client",
 		"test": "echo \"Error: no test specified\" && exit 1"
