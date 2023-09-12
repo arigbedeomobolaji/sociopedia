@@ -20,7 +20,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.unlikePost = exports.likePost = exports.deletePost = exports.updatePost = exports.getAllPosts = exports.getPost = exports.createPost = void 0;
-const postModel_1 = __importDefault(require("../models/postModel"));
+const postModel_1 = __importDefault(require("@models/postModel"));
 const createPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     try {

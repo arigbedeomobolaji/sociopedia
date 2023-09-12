@@ -17,11 +17,11 @@ const aws_sdk_1 = __importDefault(require("aws-sdk"));
 const uuid_1 = require("uuid");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const region = process.env.AWS_REGION;
+const region = process.env.OMOBOLAJI_AWS_REGION;
 aws_sdk_1.default.config.update({ region });
 const S3 = new aws_sdk_1.default.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.OMOBOLAJI_AWS_ACCESS_KEY,
+    secretAccessKey: process.env.OMOBOLAJI_AWS_SECRET_ACCESS_KEY,
     signatureVersion: "v4",
 });
 const upload = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

@@ -1,6 +1,5 @@
 node_modules
 .env
-learningPoint
-src
+src2
 tsconfig.json
 backend\tsconfig.json

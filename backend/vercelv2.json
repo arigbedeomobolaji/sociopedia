@@ -3,14 +3,14 @@
 	"env": {},
 	"builds": [
 		{
-			"src": "index.js",
+			"src": "src/index.ts",
 			"use": "@vercel/node"
 		}
 	],
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "/index.js"
+			"dest": "src/index.ts"
 		}
 	]
 }
