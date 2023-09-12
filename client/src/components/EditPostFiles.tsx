@@ -61,7 +61,7 @@ function EditPostFiles({
 						file={currentFile}
 						handleEdittedFile={handleEdittedFile}
 						handleToggle={handleToggle}
-						handleEditPostFilesOpen={handleEditPostFilesOpen}
+						// handleEditPostFilesOpen={handleEditPostFilesOpen}
 					/>
 				</DialogBody>
 				<DialogFooter>
