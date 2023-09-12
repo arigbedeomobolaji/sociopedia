@@ -17,7 +17,7 @@ const dbUrl = process.env.DB_URL!;
 app.use(cors());
 // Parse JSON request bodies
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 const startServer = async () => {
 	try {
