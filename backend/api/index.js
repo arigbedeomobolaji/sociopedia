@@ -29,7 +29,7 @@ const dbUrl = process.env.DB_URL;
 app.use((0, cors_1.default)());
 // Parse JSON request bodies
 app.use(express_1.default.json());
-// app.use(express.static("public"));
+app.use(express_1.default.static("public"));
 const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield mongoose_1.default.connect(dbUrl, {
