@@ -1,16 +1,11 @@
 import { PencilIcon } from "@heroicons/react/24/solid";
 import { useAppSelector } from "@src/libs/hooks";
-import { AuthData, UserInfo, selectAuth } from "@src/store/slice/authSlice";
 import { selectChangeTheme } from "@src/store/slice/changeThemeSlice";
 import React, { FC, useState } from "react";
 import SocialProfile from "@components/SocialProfile";
 import tw from "tailwind-styled-components";
 import AddSocialMedia from "./AddSocialMedia";
-import {
-	UpdateData,
-	UserData,
-	selectUpdateUser,
-} from "@src/store/slice/updateUserSlice";
+import { UserData } from "@src/store/slice/updateUserSlice";
 import { selectMe } from "@src/store/slice/userDataSlice";
 
 interface Dark {
