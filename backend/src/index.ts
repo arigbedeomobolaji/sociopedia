@@ -15,12 +15,6 @@ const dbUrl = process.env.DB_URL!;
 
 // Enable CORS
 app.use(cors());
-app.use((req: Request, res: Response, next: NextFunction) => {
-	res.setHeader("Access-Control-Allow-Origin", "*");
-	res.setHeader("Access-Control-Allow-Methods", "*");
-	res.setHeader("Access-Control-Allow-Headers", "*");
-	next();
-});
 // Parse JSON request bodies
 app.use(express.json());
 // app.use(express.static("public"));
