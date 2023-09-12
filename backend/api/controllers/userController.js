@@ -19,7 +19,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.increaseStat = exports.uploadProfileImage = exports.getAllFriends = exports.removeFriend = exports.addFriend = exports.allUsers = exports.updateUser = exports.deleteUser = exports.logoutAll = exports.logoutUser = exports.me = exports.loginUser = exports.createUser = void 0;
-const userModel_1 = __importDefault(require("@models/userModel"));
+const userModel_1 = __importDefault(require("../models/userModel"));
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const newUser = new userModel_1.default(req.body);

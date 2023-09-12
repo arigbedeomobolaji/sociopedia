@@ -5,16 +5,14 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "nodemon src/index.ts",
-		"build": "rimraf dist && tsc",
+		"build:dev": "rimraf dist && tsc",
 		"ts.check": "tsc --project tsconfig.json",
 		"add-build": "git add dist",
+		"start": "node server.js",
+		"client": "npm start --prefix client",
+		"client-install": "npm install --prefix client",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"pre-commit": [
-		"ts.check",
-		"build",
-		"add-build"
-	],
 	"keywords": [],
 	"author": "",
 	"license": "ISC",

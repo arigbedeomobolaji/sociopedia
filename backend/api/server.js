@@ -17,10 +17,10 @@ const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
-const userRouter_1 = __importDefault(require("@router/userRouter"));
-const uploadRouter_1 = __importDefault(require("@router/uploadRouter"));
-const postRouter_1 = __importDefault(require("@router/postRouter"));
-const commentRouter_1 = __importDefault(require("@router/commentRouter"));
+const userRouter_1 = __importDefault(require("./router/userRouter"));
+const uploadRouter_1 = __importDefault(require("./router/uploadRouter"));
+const postRouter_1 = __importDefault(require("./router/postRouter"));
+const commentRouter_1 = __importDefault(require("./router/commentRouter"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
@@ -28,9 +28,9 @@ const dbUrl = process.env.DB_URL;
 // Enable CORS
 app.use((0, cors_1.default)());
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', '*');
-    res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "*");
+    res.setHeader("Access-Control-Allow-Headers", "*");
     next();
 });
 // Parse JSON request bodies
@@ -61,9 +61,9 @@ app.use("/api/upload", uploadRouter_1.default);
 app.use("/api/posts", postRouter_1.default);
 app.use("/api/comments", commentRouter_1.default);
 if (process.env.NODE_ENV === "production") {
-    app.use("/", express_1.default.static("../client/build"));
+    app.use("/", express_1.default.static("../../client/build"));
     app.get("*", (req, res) => {
-        res.sendFile(path_1.default.resolve(__dirname, "../client/build/index.html"));
+        res.sendFile(path_1.default.resolve(__dirname, "../../client/build/index.html"));
     });
 }
 // error handling middleware
