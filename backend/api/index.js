@@ -27,12 +27,6 @@ const port = process.env.PORT;
 const dbUrl = process.env.DB_URL;
 // Enable CORS
 app.use((0, cors_1.default)());
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "*");
-    res.setHeader("Access-Control-Allow-Headers", "*");
-    next();
-});
 // Parse JSON request bodies
 app.use(express_1.default.json());
 // app.use(express.static("public"));
