@@ -22,7 +22,7 @@ const nextConfig = {
 					{ key: "Access-Control-Allow-Credentials", value: "true" },
 					{
 						key: "Access-Control-Allow-Origin",
-						value: "https://sociopedia-api-three.vercel.app/",
+						value: "https://sociopedia-api-three.vercel.app",
 					},
 					{
 						key: "Access-Control-Allow-Methods",
