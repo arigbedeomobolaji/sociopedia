@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const userController_1 = require("../controllers/userController");
+const express_1 = require("express");
+const auth_1 = __importDefault(require("../../src/middleware/auth"));
+const userRouter = (0, express_1.Router)();
+userRouter.post("/register", userController_1.createUser);
+userRouter.post("/login", userController_1.loginUser);
+userRouter.get("/me", auth_1.default, userController_1.me);
+userRouter.get("/allusers", auth_1.default, userController_1.allUsers);
+userRouter.post("/logout", auth_1.default, userController_1.logoutUser);
+userRouter.post("/logoutAll", auth_1.default, userController_1.logoutAll);
+userRouter.delete("/me", auth_1.default, userController_1.deleteUser);
+userRouter.patch("/me", auth_1.default, userController_1.updateUser);
+userRouter.patch("/friends/add", auth_1.default, userController_1.addFriend);
+userRouter.patch("/friends/remove", auth_1.default, userController_1.removeFriend);
+userRouter.get("/friendlist", auth_1.default, userController_1.getAllFriends);
+userRouter.patch("/increaseprofilestat", auth_1.default, userController_1.increaseStat);
+exports.default = userRouter;
