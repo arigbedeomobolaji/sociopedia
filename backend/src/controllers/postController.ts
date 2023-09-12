@@ -8,7 +8,7 @@
 
 import Post from "@models/postModel";
 import { Response } from "express";
-import { IUserRequest } from "src/middleware/auth";
+import { IUserRequest } from "@middleware/auth";
 
 export const createPost = async (req: IUserRequest, res: Response) => {
 	try {

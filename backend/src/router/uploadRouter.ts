@@ -1,6 +1,6 @@
 import { upload, uploadPostPics } from "@controllers/uploadController";
 import { Router } from "express";
-import authMiddleware from "src/middleware/auth";
+import authMiddleware from "@middleware/auth";
 
 const uploadRouter = Router();
 

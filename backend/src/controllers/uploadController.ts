@@ -1,7 +1,7 @@
 import { Response } from "express";
 import AWS from "aws-sdk";
 import { v4 as uuidv4 } from "uuid";
-import { IUserRequest } from "src/middleware/auth";
+import { IUserRequest } from "@middleware/auth";
 import dotenv from "dotenv";
 
 dotenv.config();

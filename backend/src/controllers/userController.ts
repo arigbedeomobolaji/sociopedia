@@ -8,7 +8,7 @@
 import { Request, Response } from "express";
 
 import User, { Token, UserDocument } from "@models/userModel";
-import { IUserRequest } from "src/middleware/auth";
+import { IUserRequest } from "@middleware/auth";
 
 export const createUser = async (req: Request, res: Response) => {
 	try {

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const uploadController_1 = require("../controllers/uploadController");
 const express_1 = require("express");
-const auth_1 = __importDefault(require("src/middleware/auth"));
+const auth_1 = __importDefault(require("../middleware/auth"));
 const uploadRouter = (0, express_1.Router)();
 uploadRouter.get("/", auth_1.default, uploadController_1.upload);
 uploadRouter.post("/", auth_1.default, uploadController_1.uploadPostPics);

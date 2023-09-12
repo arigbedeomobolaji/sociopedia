@@ -8,7 +8,7 @@ import {
 	updatePost,
 } from "@controllers/postController";
 import { Router } from "express";
-import authMiddleware from "src/middleware/auth";
+import authMiddleware from "@middleware/auth";
 
 const postRouter: Router = Router();
 
